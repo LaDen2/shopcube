@@ -16,6 +16,7 @@ class Transaction(db.Model):
     method_of_payment = db.Column(db.String(50))
 
     product = db.relationship('Product', backref='transaction', lazy=True)
+    invoice = db.relationship('Invoice', backref='trsanctions', uselist=False)
 
     def add(self):
         db.session.add(self)
